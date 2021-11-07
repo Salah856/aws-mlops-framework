@@ -10,6 +10,7 @@
 #  OR CONDITIONS OF ANY KIND, express or implied. See the License for the specific language governing permissions     #
 #  and limitations under the License.                                                                                 #
 # #####################################################################################################################
+
 import json
 from json import JSONEncoder
 import os
@@ -258,3 +259,5 @@ def pipeline_status(
             "body": json.dumps(pipeline_status, indent=4, cls=DateTimeEncoder),
             "headers": {"Content-Type": content_type},
         }
+
+        

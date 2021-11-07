@@ -221,6 +221,8 @@ def get_realtime_specific_params(event: Dict[str, Any], stage: str) -> List[Tupl
     return [("DataCaptureLocation", data_capture_location), ("EndpointName", endpoint_name)]
 
 
+
+
 def get_batch_specific_params(event: Dict[str, Any], stage: str) -> List[Tuple[str, str]]:
     batch_inference_data = get_stage_param(event, "batch_inference_data", stage)
     batch_job_output_location = clean_param(get_stage_param(event, "batch_job_output_location", stage))
@@ -231,6 +233,8 @@ def get_batch_specific_params(event: Dict[str, Any], stage: str) -> List[Tuple[s
     ]
 
 
+
+
 def get_built_in_model_monitor_image_uri(region, image_name="model-monitor"):
     model_monitor_image_uri = sagemaker.image_uris.retrieve(
         framework=image_name,
@@ -238,6 +242,7 @@ def get_built_in_model_monitor_image_uri(region, image_name="model-monitor"):
     )
 
     return model_monitor_image_uri
+
 
 
 def get_model_monitor_params(
@@ -499,3 +504,4 @@ def validate(event: Dict[str, Any]) -> Dict[str, Any]:
             raise BadRequest(f"Bad request. API body does not have the necessary parameter: {key}")
 
     return event
+
