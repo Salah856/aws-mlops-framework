@@ -10,6 +10,7 @@
 #  OR CONDITIONS OF ANY KIND, express or implied. See the License for the specific language governing permissions     #
 #  and limitations under the License.                                                                                 #
 # #####################################################################################################################
+
 import logging
 import os
 
@@ -37,6 +38,7 @@ def get_logger(name):
     logger = None
     # first case: running as a lambda function or in pytest with conftest
     # second case: running a single test or locally under test
+    
     if len(logging.getLogger().handlers) > 0:
         logger = logging.getLogger()
         logger.setLevel(get_level())
@@ -48,3 +50,5 @@ def get_logger(name):
         logging.basicConfig(level=get_level())  # NOSONAR (python:S4792)
         logger = logging.getLogger(name)
     return logger
+
+
